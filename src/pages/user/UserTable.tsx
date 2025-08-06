@@ -41,7 +41,7 @@ const UserTable: React.FC<UserTableProps> = ({
           <div className="flex-shrink-0 h-10 w-10">
             <div
               className="h-10 w-10 rounded-full flex items-center justify-center text-white font-medium text-sm"
-              style={{ backgroundColor: "orange" }}
+              style={{ backgroundColor: user.preferredTheme }}
             >
               {user.firstName[0]}
               {user.lastName[0]}
@@ -86,6 +86,28 @@ const UserTable: React.FC<UserTableProps> = ({
       ),
     },
     {
+      key: "skills",
+      header: t("messages.table.skills"),
+      render: (user: User) => (
+        <div className="flex flex-wrap gap-1">
+          {user.skills.slice(0, 2).map((skill) => (
+            <span
+              key={skill}
+              className="px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-md"
+            >
+              {skill}
+            </span>
+          ))}
+          {user.skills.length > 2 && (
+            <span className="px-2 py-1 text-xs bg-gray-100 text-gray-600 rounded-md">
+              +{user.skills.length - 2}
+            </span>
+          )}
+        </div>
+      ),
+      width: "200px",
+    },
+    {
       key: "rating",
       header: t("messages.table.rating"),
       render: (user: User) => (
@@ -125,7 +147,7 @@ const UserTable: React.FC<UserTableProps> = ({
     },
     {
       key: "actions",
-      header: t("messages.table.active"),
+      header: t("messages.table.actions"),
       render: (value: User) => (
         <div className="flex items-center gap-2">
           <Button
@@ -159,7 +181,7 @@ const UserTable: React.FC<UserTableProps> = ({
         pagination={pagination}
         onPageChange={onPageChange}
         onLimitChange={onLimitChange}
-        emptyMessage={t("common.messages.dataNoFound")}
+        emptyMessage={t("messages.table.noDataFound")}
       />
     </div>
   );

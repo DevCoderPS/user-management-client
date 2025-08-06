@@ -1,10 +1,9 @@
-export const capitalizeFirstLetter = (str: string): string => {
-  if (!str) return str;
-  return str.charAt(0).toUpperCase() + str.slice(1);
-};
-
-export const capitalizeWords = (str: string): string => {
-  return str.split(" ").map(capitalizeFirstLetter).join(" ");
+export const formatDate = (dateString: string) => {
+  return new Date(dateString).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 };
 
 export const formatDateUTC = (

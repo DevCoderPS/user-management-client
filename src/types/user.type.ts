@@ -13,6 +13,9 @@ export interface User {
   status: string;
   department: string;
   isEmailVerified?: boolean;
+  preferredTheme: string;
+  experienceLevel: number;
+  skills: string[];
   rating: number;
   address: string;
   bio: string;

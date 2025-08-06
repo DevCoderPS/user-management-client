@@ -20,6 +20,7 @@ import {
   departmentOptions,
   genderOptions,
   roleOptions,
+  skillOptions,
   statusOptions,
 } from "../../utils/constants";
 import { TextArea } from "../../components/TextArea";
@@ -27,6 +28,9 @@ import { Checkbox } from "../../components/Checkbox";
 import { Rating } from "../../components/Rating";
 import { useEffect } from "react";
 import { formatDateUTC } from "../../utils/helper";
+import { ColorPicker } from "../../components/ColorPicker";
+import { Slider } from "../../components/Slider";
+import { AutocompleteSelect } from "../../components/AutocompleteSelect";
 
 const UserForm: React.FC<UserFormProps> = ({
   user,
@@ -66,6 +70,9 @@ const UserForm: React.FC<UserFormProps> = ({
         bio: user.bio,
         rating: user.rating,
         isEmailVerified: user.isEmailVerified,
+        preferredTheme: user.preferredTheme,
+        experienceLevel: user.experienceLevel,
+        skills: user.skills,
       });
     }
   }, [reset, user]);
@@ -77,6 +84,7 @@ const UserForm: React.FC<UserFormProps> = ({
         <Input
           {...register("firstName")}
           label={t("messages.label.firstName")}
+          placeholder={t("messages.placeholder.firstName")}
           icon={<UserCircle className="w-5 h-5" />}
           error={errors.firstName}
           isRequired
@@ -84,6 +92,7 @@ const UserForm: React.FC<UserFormProps> = ({
         <Input
           {...register("lastName")}
           label={t("messages.label.lastName")}
+          placeholder={t("messages.placeholder.lastName")}
           icon={<UserCircle className="w-5 h-5" />}
           error={errors.lastName}
           isRequired
@@ -93,6 +102,7 @@ const UserForm: React.FC<UserFormProps> = ({
         <Input
           {...register("email")}
           label={t("messages.label.email")}
+          placeholder={t("messages.placeholder.email")}
           icon={<Mail className="w-5 h-5" />}
           error={errors.email}
           isRequired
@@ -100,6 +110,7 @@ const UserForm: React.FC<UserFormProps> = ({
         <Input
           {...register("phone")}
           label={t("messages.label.phone")}
+          placeholder={t("messages.placeholder.phone")}
           icon={<Phone className="w-5 h-5" />}
           error={errors.phone}
           isRequired
@@ -111,7 +122,8 @@ const UserForm: React.FC<UserFormProps> = ({
             {...register("password")}
             isPassword
             isRequired
-            label={t("user.label.password")}
+            label={t("messages.label.password")}
+            placeholder={t("messages.placeholder.password")}
             icon={<UserLock className="w-5 h-5" />}
             error={errors.password}
           />
@@ -119,7 +131,8 @@ const UserForm: React.FC<UserFormProps> = ({
             {...register("confirmPassword")}
             isPassword
             isRequired
-            label={t("user.label.confirmPassword")}
+            label={t("messages.label.confirmPassword")}
+            placeholder={t("messages.placeholder.confirmPassword")}
             icon={<UserLock className="w-5 h-5" />}
             error={errors.confirmPassword}
           />
@@ -136,9 +149,9 @@ const UserForm: React.FC<UserFormProps> = ({
         />
         <Select
           {...register("gender")}
-          label={t("messages.label.department")}
+          label={t("messages.label.gender")}
           options={genderOptions}
-          placeholder="Please Select Gender"
+          placeholder={t("messages.placeholder.gender")}
           icon={<Transgender className="w-5 h-5" />}
           isRequired
           error={errors.gender}
@@ -149,7 +162,7 @@ const UserForm: React.FC<UserFormProps> = ({
           {...register("role")}
           label={t("messages.label.role")}
           options={roleOptions}
-          placeholder="Please Select Gender"
+          placeholder={t("messages.placeholder.role")}
           icon={<Transgender className="w-5 h-5" />}
           isRequired
           error={errors.role}
@@ -158,7 +171,7 @@ const UserForm: React.FC<UserFormProps> = ({
           {...register("department")}
           label={t("messages.label.department")}
           options={departmentOptions}
-          placeholder="Please Select Role"
+          placeholder={t("messages.placeholder.department")}
           icon={<UserRoundCog className="w-5 h-5" />}
           isRequired
           error={errors.department}
@@ -169,10 +182,26 @@ const UserForm: React.FC<UserFormProps> = ({
           {...register("status")}
           label={t("messages.label.status")}
           options={statusOptions}
-          placeholder="Please Select Role"
+          placeholder={t("messages.placeholder.status")}
           icon={<UserRoundCog className="w-5 h-5" />}
           isRequired
           error={errors.status}
+        />
+        <ColorPicker
+          label={t("messages.label.preferredTheme")}
+          value={watch().preferredTheme || "#3B82F6"}
+          onChange={(color) => setValue("preferredTheme", color)}
+          error={errors.preferredTheme}
+        />
+      </div>
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <Slider
+          label={t("messages.label.expLevel")}
+          value={watch().experienceLevel || 1}
+          onChange={(value) => setValue("experienceLevel", value)}
+          min={1}
+          max={10}
+          error={errors.experienceLevel}
         />
         <Rating
           label={t("messages.label.rating")}
@@ -181,18 +210,26 @@ const UserForm: React.FC<UserFormProps> = ({
           error={errors.rating}
         />
       </div>
+      <AutocompleteSelect
+        label={t("messages.label.skills")}
+        options={skillOptions}
+        value={watch().skills || []}
+        onChange={(value) => setValue("skills", value)}
+        placeholder={t("messages.placeholder.skills")}
+        error={errors.skills?.message}
+      />
       <TextArea
         {...register("address")}
         label={t("messages.label.address")}
         rows={2}
-        placeholder="Tell us about yourself..."
+        placeholder={t("messages.placeholder.address")}
         error={errors.address}
       />
       <TextArea
         {...register("bio")}
         label={t("messages.label.bio")}
         rows={4}
-        placeholder="Tell us about yourself..."
+        placeholder={t("messages.placeholder.bio")}
         error={errors.bio}
       />
       <Checkbox

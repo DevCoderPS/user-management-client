@@ -24,7 +24,7 @@ export const userSchema = (t: (key: string) => string) =>
       .string()
       .matches(
         /^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/,
-        t("common.valid.phone.matches")
+        t("messages.valid.phone.matches")
       )
       .notRequired(),
 
@@ -51,7 +51,7 @@ export const userSchema = (t: (key: string) => string) =>
       otherwise: (schema) => schema.optional(),
     }),
 
-    dateOfBirth: yup.string().required(t("common.required.dateOfBirth")),
+    dateOfBirth: yup.string().required(t("messages.required.dateOfBirth")),
 
     gender: yup
       .string()
@@ -65,16 +65,16 @@ export const userSchema = (t: (key: string) => string) =>
 
     department: yup
       .string()
-      .required(t("common.required.department"))
+      .required(t("messages.required.department"))
       .oneOf(
         ["engineering", "marketing", "sales", "hr", "finance", "operations"],
-        t("common.valid.department")
+        t("messages.valid.department")
       ),
 
     status: yup
       .string()
-      .required(t("common.required.status"))
-      .oneOf(["active", "inactive"], t("common.valid.status")),
+      .required(t("messages.required.status"))
+      .oneOf(["active", "inactive"], t("messages.valid.status")),
 
     rating: yup.number(),
 
@@ -83,4 +83,16 @@ export const userSchema = (t: (key: string) => string) =>
     bio: yup.string().nullable(),
 
     isEmailVerified: yup.boolean().default(true),
+
+    preferredTheme: yup
+      .string()
+      .required(t("messages.required.preferredTheme")),
+
+    experienceLevel: yup
+      .number()
+      .required(t("messages.required.expLevel"))
+      .min(1, t("messages.valid.expLevel.min"))
+      .max(20, t("messages.valid.expLevel.max")),
+
+    skills: yup.array().of(yup.string()).min(1, t("messages.required.skills")),
   });

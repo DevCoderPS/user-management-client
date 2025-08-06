@@ -10,6 +10,8 @@ import { useUserStore } from "../../store/userStore";
 import { ConfirmModal } from "../../components/ConfirmModal";
 import UserForm from "./UserForm";
 import UserTable from "./UserTable";
+import LanguageSwitcher from "../../components/LanguageSwitcher";
+import UserDetails from "./UserDetails";
 
 const UserPage: React.FC = () => {
   const { t } = useLanguage();
@@ -108,13 +110,7 @@ const UserPage: React.FC = () => {
         </div>
 
         <div className="mt-4 sm:mt-0 flex space-x-3">
-          <Button
-            variant="outline"
-            onClick={() => setModalState("create")}
-            icon={<Plus className="w-5 h-5 mr-2" />}
-          >
-            {t("messages.button.language")}
-          </Button>
+          <LanguageSwitcher />
 
           <Button
             variant="outline"
@@ -161,13 +157,37 @@ const UserPage: React.FC = () => {
         />
       </Modal>
 
+      {/* View Modal */}
+      <Modal
+        isOpen={modalState === "view"}
+        onClose={closeModal}
+        title={getModalTitle()}
+        size="lg"
+      >
+        {selectedUser && (
+          <UserDetails
+            user={selectedUser}
+            onEdit={() => setModalState("edit")}
+            onClose={closeModal}
+          />
+        )}
+      </Modal>
+
       {/* Delete Confirmation Modal */}
       <ConfirmModal
         isOpen={modalState === "delete"}
         onClose={closeModal}
         onConfirm={handleDeleteUser}
-        title="Delete City"
-        message={`Are you sure you want to delete ${userToDelete?.firstName}? ${userToDelete?.lastName} This action cannot be undone.`}
+        title={t("messages.alert.title.deleted")}
+        message={
+          t("messages.alert.title.prefixDeleted") +
+          " " +
+          userToDelete?.firstName +
+          " " +
+          userToDelete?.lastName +
+          "? " +
+          t("messages.alert.title.suffixDeleted")
+        }
         confirmText="Delete"
         variant="danger"
         loading={loading}

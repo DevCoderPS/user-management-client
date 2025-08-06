@@ -5,7 +5,8 @@
             "add": "Add User",
             "edit": "Edit User",
             "delete": "Delete User",
-            "update": "Update User"
+            "update": "Update User",
+            "detail": "Detail User"
         },
         "button": {
             "add": "Add User",
@@ -15,8 +16,8 @@
             "cancel": "Cancel",
             "export": "Export",
             "refresh": "Refresh",
-            "en": "EN",
-            "mm": "MM"
+            "edit": "Edit",
+            "close": "Close"
         },
         "label": {
             "firstName": "First Name",
@@ -33,10 +34,32 @@
             "rating": "Rating",
             "isEmailVerified": "Email Verified",
             "address": "Address",
-            "bio": "Bio"
+            "bio": "Bio",
+            "preferredTheme": "Preferred Theme Color",
+            "expLevel": "Experience Level",
+            "skills": "Skills",
+            "born": "Born",
+            "contactInformation": "Contact Information",
+            "about": "About",
+            "themePreference": "Theme Preference",
+            "accountInformation": "Account Information",
+            "created": "Created",
+            "lastUpdated": "Last Updated"
         },
         "placeholder": {
-
+            "firstName": "Enter first name",
+            "lastName": "Enter last name",
+            "email": "Enter email",
+            "phone": "Enter phone",
+            "password": "Enter password",
+            "confirmPassword": "Enter confirm password",
+            "address": "Enter full address",
+            "bio": "Tell us about yourself...",
+            "gender": "Please select gender",
+            "role": "Please select role",
+            "department": "Please select department",
+            "status": "Please select status",
+            "skills": "Search and select your skills"
         },
         "required": {
             "firstName": "First name is required",
@@ -47,7 +70,10 @@
             "password": "Password id required",
             "confirmPassword": "Confirm password is required",
             "dateOfBirth": "Date of birth is required",
-            "status": "Status is required"
+            "status": "Status is required",
+            "preferredTheme": "Please select a theme color",
+            "expLevel": "Experience level is required",
+            "skills": "Select at least one skill"
         },
         "valid": {
             "firstName": {
@@ -67,10 +93,16 @@
             "password": {
                 "matches": "Password must contain at least one uppercase letter, one lowercase letter, one number and one special character"
             },
+            "confirmPassword": "Please make sure your passwords match",
             "phone": {
                 "matches": "Invalid phone number format"
             },
-            "status": "Invalid status"
+            "department": "Invalid department",
+            "status": "Invalid status",
+            "expLevel": {
+                "min": "Experience level must be at least 1",
+                "max": "Experience level must not exceed 20"
+            }
         },
         "table": {
             "name": "NAME",
@@ -80,13 +112,16 @@
             "active": "ACTIVE",
             "created": "CREATED",
             "actions": "ACTIONS",
+            "skills": "SKILLS",
             "noDataFound": "No Data Found"
         },
         "alert": {
             "title": {
                 "created": "Created User",
                 "updated": "Updated User",
-                "deleted": "Deleted User"
+                "deleted": "Deleted User",
+                "prefixDeleted": "Are you sure you want to delete",
+                "suffixDeleted": "This action cannot be undone."
             },
             "content": {
                 "created": "Created user successfully",

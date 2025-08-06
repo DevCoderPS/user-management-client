@@ -42,6 +42,11 @@ export const useUserStore = create<UserState>((set, get) => ({
         error: error instanceof Error ? error.message : "Failed to fetch users",
         loading: false,
       });
+      useNotificationStore.getState().addNotification({
+        type: "error",
+        message:
+          error instanceof Error ? error.message : "Failed to create user",
+      });
     }
   },
   setSelectedUser: async (user) => set({ selectedUser: user }),
@@ -62,6 +67,11 @@ export const useUserStore = create<UserState>((set, get) => ({
       set({
         error: error instanceof Error ? error.message : "Failed to create user",
         loading: false,
+      });
+      useNotificationStore.getState().addNotification({
+        type: "error",
+        message:
+          error instanceof Error ? error.message : "Failed to update user",
       });
     }
   },
@@ -84,6 +94,11 @@ export const useUserStore = create<UserState>((set, get) => ({
       set({
         error: error instanceof Error ? error.message : "Failed to update user",
         loading: false,
+      });
+      useNotificationStore.getState().addNotification({
+        type: "error",
+        message:
+          error instanceof Error ? error.message : "Failed to delete user",
       });
     }
   },

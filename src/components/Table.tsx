@@ -112,7 +112,7 @@ export function Table<T>({
       {pagination && pagination.totalPages > 1 && (
         <div className="flex items-center justify-between px-6 py-4 border-t border-gray-200">
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
+            {/* <div className="flex items-center gap-2">
               <span className="text-sm text-gray-700">Show</span>
               <select
                 value={pagination.limit}
@@ -126,7 +126,7 @@ export function Table<T>({
                 ))}
               </select>
               <span className="text-sm text-gray-700">entries</span>
-            </div>
+            </div> */}
 
             <div className="text-sm text-gray-700">
               Showing {(pagination.page - 1) * pagination.limit + 1} to{" "}
