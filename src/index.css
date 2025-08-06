@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -65,4 +65,39 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+} */
+
+
+@import "tailwindcss";
+
+
+@theme {
+  --font-sans: 'system-ui',
+    '-apple-system', /* San Francisco on iOS/macOS */
+    'BlinkMacSystemFont', /* Chrome on macOS */
+    'Segoe UI', /* Windows */
+    'Roboto', /* Android/Chrome OS */
+    'Helvetica Neue',
+    'Arial',
+    'sans-serif';
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: 'ui-monospace',
+    'SFMono-Regular',
+    'Menlo',
+    'Monaco',
+    'Consolas',
+    'Liberation Mono',
+    'Courier New',
+    'monospace';
+  --font-roboto: "Roboto", sans-serif;
+
+  --primary: #5EABD6;  /* blue-500 */
+  --primary-hover: #3D90D7; /* blue-600 */
+  --primary-active: #3A59D1; /* blue-700 */
+  
+  --secondary: #94a3b8; /* slate-400 */
+  --secondary-hover: #64748b; /* slate-500 */
+  --secondary-active: #475569; /* slate-600 */
+
+  --disabled: #E14434;
 }
