@@ -1,0 +1,133 @@
+{
+    "messages": {
+        "title": {
+            "screen": "User Management",
+            "add": "Add User",
+            "edit": "Edit User",
+            "delete": "Delete User",
+            "update": "Update User",
+            "detail": "Detail User"
+        },
+        "button": {
+            "add": "Add User",
+            "save": "Save User",
+            "update": "Update User",
+            "delete": "Delete User",
+            "cancel": "Cancel",
+            "export": "Export",
+            "refresh": "Refresh",
+            "edit": "Edit",
+            "close": "Close"
+        },
+        "label": {
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "email": "Email",
+            "phone": "Phone",
+            "role": "Role",
+            "department": "Department",
+            "gender": "Gender",
+            "password": "Password",
+            "confirmPassword": "Confirm Password",
+            "dateOfBirth": "Date Of Birth",
+            "status": "Status",
+            "rating": "Rating",
+            "isEmailVerified": "Email Verified",
+            "address": "Address",
+            "bio": "Bio",
+            "preferredTheme": "Preferred Theme Color",
+            "expLevel": "Experience Level",
+            "skills": "Skills",
+            "born": "Born",
+            "contactInformation": "Contact Information",
+            "about": "About",
+            "themePreference": "Theme Preference",
+            "accountInformation": "Account Information",
+            "created": "Created",
+            "lastUpdated": "Last Updated"
+        },
+        "placeholder": {
+            "firstName": "Enter first name",
+            "lastName": "Enter last name",
+            "email": "Enter email",
+            "phone": "Enter phone",
+            "password": "Enter password",
+            "confirmPassword": "Enter confirm password",
+            "address": "Enter full address",
+            "bio": "Tell us about yourself...",
+            "gender": "Please select gender",
+            "role": "Please select role",
+            "department": "Please select department",
+            "status": "Please select status",
+            "skills": "Search and select your skills"
+        },
+        "required": {
+            "firstName": "First name is required",
+            "lastName": "Last name is required",
+            "email": "Email is required",
+            "role": "Role is required",
+            "gender": "Gender is required",
+            "password": "Password id required",
+            "confirmPassword": "Confirm password is required",
+            "dateOfBirth": "Date of birth is required",
+            "status": "Status is required",
+            "preferredTheme": "Please select a theme color",
+            "expLevel": "Experience level is required",
+            "skills": "Select at least one skill"
+        },
+        "valid": {
+            "firstName": {
+                "min": "First name must be at least 3 characters",
+                "max": "First name must not exceed 20 characters"
+            },
+            "lastName": {
+                "min": "Last name must be at least 3 characters",
+                "max": "Last name must not exceed 20 characters"
+            },
+            "email": {
+                "format": "Invalid email format",
+                "max":  "Email must not exceed 255 characters"
+            },
+            "role": "Invalid role",
+            "gender": "Invalid gender",
+            "password": {
+                "matches": "Password must contain at least one uppercase letter, one lowercase letter, one number and one special character"
+            },
+            "confirmPassword": "Please make sure your passwords match",
+            "phone": {
+                "matches": "Invalid phone number format"
+            },
+            "department": "Invalid department",
+            "status": "Invalid status",
+            "expLevel": {
+                "min": "Experience level must be at least 1",
+                "max": "Experience level must not exceed 20"
+            }
+        },
+        "table": {
+            "name": "NAME",
+            "contact": "CONTACT",
+            "roleAndDepartment": "ROLE && DEPARTMENT",
+            "rating": "RATING",
+            "active": "ACTIVE",
+            "created": "CREATED",
+            "actions": "ACTIONS",
+            "skills": "SKILLS",
+            "noDataFound": "No Data Found"
+        },
+        "alert": {
+            "title": {
+                "created": "Created User",
+                "updated": "Updated User",
+                "deleted": "Deleted User",
+                "prefixDeleted": "Are you sure you want to delete",
+                "suffixDeleted": "This action cannot be undone."
+            },
+            "content": {
+                "created": "Created user successfully",
+                "updated": "Updated user successfully",
+                "deleted": "Deleted user successfully"
+            }
+        }
+    }
+}
