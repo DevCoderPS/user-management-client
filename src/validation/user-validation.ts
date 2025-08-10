@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-export const userSchema = (t: (key: string) => string) =>
+export const userFormSchema = (t: (key: string) => string) =>
   yup.object().shape({
     firstName: yup
       .string()
@@ -96,3 +96,5 @@ export const userSchema = (t: (key: string) => string) =>
 
     skills: yup.array().of(yup.string()).min(1, t("messages.required.skills")),
   });
+
+export type UserFormData = yup.InferType<ReturnType<typeof userFormSchema>>;

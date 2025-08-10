@@ -52,7 +52,7 @@ export const Slider: React.FC<SliderProps> = ({
 
       {error && <p className="mt-1 text-sm text-red-600">{error.message}</p>}
 
-      <style jsx>{`
+      <style>{`
         .slider::-webkit-slider-thumb {
           appearance: none;
           height: 20px;

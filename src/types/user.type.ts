@@ -1,4 +1,5 @@
 import type { PaginationMeta } from ".";
+import type { UserFormData } from "../validation/user-validation";
 
 export interface User {
   _id: string;
@@ -24,23 +25,23 @@ export interface User {
   updatedAt: Date;
 }
 
-export interface UserFormData {
-  firstName: string;
-  lastName: string;
-  email: string;
-  role: "admin" | "moderator" | "user";
-  gender: "male" | "female" | "other";
-  password: string;
-  phone?: string;
-  dateOfBirth: Date;
-  status: "active" | "inactive";
-  department: string;
-  rating: number;
-  isEmailVerified?: boolean;
-  address?: string;
-  bio?: string;
-  delFlg?: boolean;
-}
+// export interface UserFormData {
+//   firstName: string;
+//   lastName: string;
+//   email: string;
+//   role: "admin" | "moderator" | "user";
+//   gender: "male" | "female" | "other";
+//   password: string;
+//   phone?: string;
+//   dateOfBirth: Date;
+//   status: "active" | "inactive";
+//   department: string;
+//   rating: number;
+//   isEmailVerified?: boolean;
+//   address?: string;
+//   bio?: string;
+//   delFlg?: boolean;
+// }
 
 export interface UserState {
   users: User[];

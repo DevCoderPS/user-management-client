@@ -3,7 +3,7 @@ import type { UserFormProps } from "../../types/user.type";
 import { useLanguage } from "../../store/i18nStore";
 import { Button } from "../../components/Button";
 import { useForm } from "react-hook-form";
-import { userSchema } from "../../validation/user-validation";
+import { userFormSchema } from "../../validation/user-validation";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Input } from "../../components/Input";
 import {
@@ -49,7 +49,7 @@ const UserForm: React.FC<UserFormProps> = ({
     watch,
     reset,
   } = useForm({
-    resolver: yupResolver(userSchema(t)),
+    resolver: yupResolver(userFormSchema(t)),
     context: { isEditing },
   });
 
@@ -213,7 +213,7 @@ const UserForm: React.FC<UserFormProps> = ({
       <AutocompleteSelect
         label={t("messages.label.skills")}
         options={skillOptions}
-        value={watch().skills || []}
+        value={(watch().skills as string[]) || []}
         onChange={(value) => setValue("skills", value)}
         placeholder={t("messages.placeholder.skills")}
         error={errors.skills?.message}
